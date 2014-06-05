@@ -8,6 +8,7 @@
     % - http://www.drdobbs.com/parallel/the-practical-application-of-prolog/184405220
   % Here is an example of a web stack:
     % http://hcs.science.uva.nl/projects/SWI-Prolog/articles/mn9c.pdf
+*/
 
 /*
 === Do
@@ -38,8 +39,3 @@ min([Current,Next|Rest], Min) :-  Current > Next, min([Next|Rest], Min).
 min([Current,Next|Rest], Min) :- Current =< Next, min([Current|Rest], Min).
 
 % == Sort the elements of a list.
-% didn't cheat on this one. Prolog master.
-sort_list([], Sorted, Sorted).
-sort_list([Head,Next|Tail], [], Sorted) :- Next > Head, sort_list([Head|Tail], [Next], Sorted).
-sort_list([Head,Next|Tail], [], Sorted) :- Head =< Next, sort_list([Next|Tail], [Head], Sorted).
-sort_list([Head|Tail], Sorted) :- sort_list([Head|Tail], [], Sorted).
